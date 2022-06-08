@@ -11,6 +11,11 @@ td {
     width: 133px;
     height: 133px;
     border: 5px solid black;
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: rgba(13, 255, 0, 0.3);
 }
 
 table tr:first-child td {
@@ -35,4 +40,8 @@ table td:last-child {
     width: 125px;
     left: 4px;
     bottom: 4px;
+}
+
+.dNone {
+    display: none;
 }
