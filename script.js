@@ -131,8 +131,6 @@ function checkForWin() {
 
 function restart() {
     restartSound.play()
-    fields = []
-    gameOver = false;
     setTimeout(function () {
         location.reload()
     }, 500)

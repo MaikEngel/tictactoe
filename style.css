@@ -1,7 +1,9 @@
 body {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     background-image: url('img/background.jpg');
@@ -11,6 +13,7 @@ body {
     object-fit: cover;
 }
 
+
 .gameLayout {
     display: flex;
     justify-content: center;
@@ -18,6 +21,8 @@ body {
     flex-direction: column-reverse;
     position: relative;
     background-color: rgba(117, 232, 250, 0.9);
+    margin-bottom: 180px;
+    margin-top: 80px;
 }
 
 
@@ -185,4 +190,35 @@ table td:last-child {
     to{
         transform: scale(1);
     }
+}
+
+@media (max-width: 670px) {
+    .gameOver {
+        top: 129px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 440px) {
+    .startButton {
+        width: 90%;
+        height: 75px;
+        font-size: 30px;
+    }
+
+    .shapeSize {
+        width: 89%;
+    }
+
+}
+
+footer {
+    padding-top: 32px;
+    text-align: center;
+    height: 100px;
+    width: 100%;
+    background-color: #707070;
+    position: absolute;
+    bottom: 0;
+    margin-top: 80px;
 }
