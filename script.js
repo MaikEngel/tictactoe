@@ -1,5 +1,6 @@
 let fields = [];
 let drawGame = 0;
+let start = false;
 let gameOver = false;
 let currentShape = 'red';
 let greenKlick = new Audio('audio/klickGreen.mp3')
@@ -7,11 +8,18 @@ let redKlick = new Audio('audio/klickRed.mp3')
 let winSound = new Audio('audio/win.mp3')
 let restartSound = new Audio('audio/restart.mp3')
 let drawGamePlay = new Audio('audio/draw.mp3')
+let backgroundMusic = new Audio('audio/backgroundMusic.mp3')
+let startSound = new Audio('audio/start.mp3')
 
-
+function startGame() {
+    start = true;
+    startSound.play();
+    backgroundMusic.play();
+    document.getElementById('startButton').classList.add('dNone');
+}
 
 function fillShape(id) {
-    if (!fields[id] && !gameOver) {
+    if (!fields[id] && !gameOver && start) {
 
         if (currentShapeRed()) {
             currentShape = 'green';
@@ -97,6 +105,7 @@ function checkForWin() {
         console.log('GEWONNEN:', winner)
         gameOver = true;
         winSound.play()
+        backgroundMusic.pause()
         setTimeout(function () {
             document.getElementById('gameOver').classList.remove('dNone')
         }, 200)
@@ -109,6 +118,7 @@ function checkForWin() {
     if (drawGame == 9 && !winner){
         console.log('DRAW')
         gameOver = true;
+        backgroundMusic.pause()
         drawGamePlay.play()
         setTimeout(function () {
             document.getElementById('restartButton').classList.remove('dNone')
@@ -131,3 +141,4 @@ function restart() {
 function currentShapeRed() {
     return currentShape == 'red';
 }
+
