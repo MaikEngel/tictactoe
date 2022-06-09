@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
+
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
@@ -14,58 +16,80 @@
 
 <body>
 
-    <div class="playerPanel">
-        <div id="player1">
-            <img src="./img/green.png" alt=""> Player 1
-        </div>
-        <div id="player2" class="playerInactiv">
-            <img src="./img/red.png" alt=""> Player 2
+    <div class="gameLayout">
+
+        <button id="restartButton" class="dNone restartButton" onclick="restart()">RESTART</button>
+
+        <div class="playerPanel">
+            <div id="player1">
+                <img src="./img/green.png" alt=""> Player 1
+            </div>
+            <div id="player2" class="playerInactiv">
+                <img src="./img/red.png" alt=""> Player 2
+            </div>
         </div>
 
+
+
+        <div id="line0" class="horizontalLine" style="top: 62px"></div>
+        <div id="line1" class="horizontalLine" style="top: 205px"></div>
+        <div id="line2" class="horizontalLine" style="top: 341px"></div>
+        <div id="line3" class="horizontalLine makeVertical" style="top: 205px; left: -110px"></div>
+        <div id="line4" class="horizontalLine makeVertical" style="top: 205px"></div>
+        <div id="line5" class="horizontalLine makeVertical" style="top: 205px; left: 171px"></div>
+        <div id="line6" class="horizontalLine spin45deg" style="top: 205px"></div>
+        <div id="line7" class="horizontalLine spin135deg" style="top: 205px"></div>
+
+
+        <table>
+
+            <tr>
+                <td onclick="fillShape(0)">
+                    <img id="green0" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red0" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+                <td onclick="fillShape(1)">
+                    <img id="green1" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red1" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+                <td onclick="fillShape(2)">
+                    <img id="green2" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red2" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(3)">
+                    <img id="green3" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red3" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+                <td onclick="fillShape(4)">
+                    <img id="green4" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red4" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+                <td onclick="fillShape(5)">
+                    <img id="green5" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red5" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td onclick="fillShape(6)">
+                    <img id="green6" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red6" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+                <td onclick="fillShape(7)">
+                    <img id="green7" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red7" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+                <td onclick="fillShape(8)">
+                    <img id="green8" class="shape shapeSize dNone" src="./img/green.png" alt="">
+                    <img id="red8" class="shape shapeSize dNone" src="./img/red.png" alt="">
+                </td>
+            </tr>
+        </table>
+        <img id="tie" class="gameOver tie dNone" src="img/draw.png" alt="">
+        <img id="gameOver" class="gameOver dNone" src="img/gameover.png" alt="">
     </div>
-    <table>
-        <tr>
-            <td onclick="fillShape(0)">
-                <img id="green0" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red0" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-            <td onclick="fillShape(1)">
-                <img id="green1" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red1" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-            <td onclick="fillShape(2)">
-                <img id="green2" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red2" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-        </tr>
-        <tr>
-            <td onclick="fillShape(3)">
-                <img id="green3" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red3" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-            <td onclick="fillShape(4)">
-                <img id="green4" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red4" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-            <td onclick="fillShape(5)">
-                <img id="green5" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red5" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-        </tr>
-        <tr>
-            <td onclick="fillShape(6)">
-                <img id="green6" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red6" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-            <td onclick="fillShape(7)">
-                <img id="green7" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red7" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-            <td onclick="fillShape(8)">
-                <img id="green8" class="shape shapeSize dNone" src="./img/green.png" alt="">
-                <img id="red8" class="shape shapeSize dNone" src="./img/red.png" alt="">
-            </td>
-        </tr>
+
 </body>
 
 </html>
